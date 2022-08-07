@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "minerals",
+  "version": "${version}",
+
+  "name": "Enderman's Minerals",
+  "description": "Adds various minerals",
+  "authors": [
+    "Srinjay Das Gupta"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/modid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.endermans.minerals.EndermansMinerals"
+    ],
+    "client": [
+      "net.endermans.minerals.EndermansMineralsClient"
+    ]
+  },
+  "mixins": [
+    "minerals.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
