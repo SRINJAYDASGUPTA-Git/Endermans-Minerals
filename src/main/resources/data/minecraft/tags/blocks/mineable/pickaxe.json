@@ -5,6 +5,29 @@
     "minerals:pure_ferrite_block",
     "minerals:magnetised_ferrite_block",
     "minerals:ferrite_ore",
-    "minerals:deepslate_ferrite_ore"
+    "minerals:deepslate_ferrite_ore",
+    "minerals:lithium_ore",
+    "minerals:deepslate_lithium_ore",
+
+    "minerals:coloured_lamp_black",
+    "minerals:coloured_lamp_blue",
+    "minerals:coloured_lamp_brown",
+    "minerals:coloured_lamp_cyan",
+    "minerals:coloured_lamp_gray",
+    "minerals:coloured_lamp_green",
+    "minerals:coloured_lamp_light_blue",
+    "minerals:coloured_lamp_lime",
+    "minerals:coloured_lamp_magenta",
+    "minerals:coloured_lamp_orange",
+    "minerals:coloured_lamp_pink",
+    "minerals:coloured_lamp_purple",
+    "minerals:coloured_lamp_red",
+    "minerals:coloured_lamp_silver",
+    "minerals:coloured_lamp_white",
+    "minerals:coloured_lamp_yellow"
+
+
+
+
   ]
 }

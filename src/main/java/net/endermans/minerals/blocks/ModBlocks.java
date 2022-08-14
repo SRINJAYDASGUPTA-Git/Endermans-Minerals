@@ -79,176 +79,217 @@ public class ModBlocks {
                     "coloured_lamp_black",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_BLUE =
+    public static final Block COLOURED_LAMP_BLUE =
             registerBlock(
                     "coloured_lamp_blue",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_BROWN =
+    public static final Block COLOURED_LAMP_BROWN =
             registerBlock(
                     "coloured_lamp_brown",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_CYAN =
+    public static final Block COLOURED_LAMP_CYAN =
             registerBlock(
                     "coloured_lamp_cyan",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_GRAY =
+    public static final Block COLOURED_LAMP_GRAY =
             registerBlock(
                     "coloured_lamp_gray",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_GREEN =
+    public static final Block COLOURED_LAMP_GREEN =
             registerBlock(
                     "coloured_lamp_green",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_LIGHT_BLUE =
+    public static final Block COLOURED_LAMP_LIGHT_BLUE =
             registerBlock(
                     "coloured_lamp_light_blue",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_LIME =
+    public static final Block COLOURED_LAMP_LIME =
             registerBlock(
                     "coloured_lamp_lime",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_MAGENTA =
+    public static final Block COLOURED_LAMP_MAGENTA =
             registerBlock(
                     "coloured_lamp_magenta",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_ORANGE =
+    public static final Block COLOURED_LAMP_ORANGE =
             registerBlock(
                     "coloured_lamp_orange",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_PINK =
+    public static final Block COLOURED_LAMP_PINK =
             registerBlock(
                     "coloured_lamp_pink",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_PURPLE =
+    public static final Block COLOURED_LAMP_PURPLE =
             registerBlock(
                     "coloured_lamp_purple",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_RED =
+    public static final Block COLOURED_LAMP_RED =
             registerBlock(
                     "coloured_lamp_red",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_SILVER =
+    public static final Block COLOURED_LAMP_SILVER =
             registerBlock(
                     "coloured_lamp_silver",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_WHITE =
+    public static final Block COLOURED_LAMP_WHITE =
             registerBlock(
                     "coloured_lamp_white",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
 
-public static final Block COLOURED_LAMP_YELLOW =
+    public static final Block COLOURED_LAMP_YELLOW =
             registerBlock(
                     "coloured_lamp_yellow",
                     new ColouredLampBlock(FabricBlockSettings.
                             of(Material.GLASS).
-                            strength(4f).
+                            strength(1f).
+                            sounds(BlockSoundGroup.GLASS).
                             luminance(state -> state.get(ColouredLampBlock.LIT)? 15:0)
                     ),
                     EndermansMinerals.ELEMENTS
             );
+
+    public static final Block LITHIUM_ORE =
+            registerBlock(
+                    "lithium_ore",
+                    new OreBlock(FabricBlockSettings.
+                            of(Material.STONE).
+                            strength(4f).
+                            requiresTool(),
+                            UniformIntProvider.create(3, 7)),
+                    ModItemGroup.ELEMENTS
+            );
+
+    public static final Block DEEPSLATE_LITHIUM_ORE =
+            registerBlock(
+                    "deepslate_lithium_ore",
+                    new OreBlock(FabricBlockSettings.
+                            of(Material.STONE).
+                            strength(4f).
+                            requiresTool().
+                            sounds(BlockSoundGroup.DEEPSLATE),
+                            UniformIntProvider.create(3, 7)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
 
 
 

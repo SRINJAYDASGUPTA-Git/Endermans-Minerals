@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "minerals:block/lithium_ore"
+    }
+  }
+}
