@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 1,
+  "ingredient": {
+    "item": "minerals:ferrite_dust"
+  },
+  "result": "minerals:ferrite"
+}

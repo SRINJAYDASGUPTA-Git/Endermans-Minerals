@@ -2,6 +2,20 @@
   "item.minerals.ferrite_dust": "Ferrite Dust",
   "item.minerals.pure_ferrite": "Pure Ferrite",
   "item.minerals.ferrite": "Ferrite",
-  "item.minerals.magnetised_ferrite": "Magnetised Ferrite"
+  "item.minerals.magnetised_ferrite": "Magnetised Ferrite",
+  "item.minerals.magnet": "Magnet",
+  "item.minerals.magnet.tooltip.range": "Range: %d blocks",
+  "item.minerals.magnet.tooltip.speed": "Pick up speed: %d",
+  "item.minerals.magnet.tooltip.state": "%d",
+
+  "itemGroup.minerals.elements": "Elements",
+
+
+
+  "block.minerals.ferrite_block": "Ferrite Block",
+  "block.minerals.pure_ferrite_block": "Pure Ferrite Block",
+  "block.minerals.magnetised_ferrite_block": "Magnetised Ferrite Block",
+  "block.minerals.ferrite_ore": "Ferrite Ore",
+  "block.minerals.deepslate_ferrite_ore": "Deepslate Ferrite Block"
 
 }

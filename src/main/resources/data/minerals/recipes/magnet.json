@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "*B*",
+    "*E*",
+    "***"
+  ],
+  "key": {
+    "*": {
+      "item": "minerals:magnetised_ferrite"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "B":
+    {
+      "item": "minerals:magnetised_ferrite_block"
+    }
+  },
+  "result": {
+    "item": "minerals:magnet",
+    "count": 1
+  }
+}

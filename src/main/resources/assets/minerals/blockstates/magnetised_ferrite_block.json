@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "minerals:block/magnetised_ferrite_block"
+    }
+  }
+}

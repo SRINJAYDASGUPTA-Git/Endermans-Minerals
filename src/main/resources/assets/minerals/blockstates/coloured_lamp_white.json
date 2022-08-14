@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "minerals:block/coloured_lamp_white"
+    },
+    "lit=true": {
+      "model": "minerals:block/coloured_lamp_white_on"
+    }
+  }
+}

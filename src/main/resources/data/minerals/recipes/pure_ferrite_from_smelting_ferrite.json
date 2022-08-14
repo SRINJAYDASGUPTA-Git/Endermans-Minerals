@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 150,
+  "experience": 5,
+  "ingredient": {
+    "item": "minerals:ferrite"
+  },
+  "result": "minerals:pure_ferrite"
+}
