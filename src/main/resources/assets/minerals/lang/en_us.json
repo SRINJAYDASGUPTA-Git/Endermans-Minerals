@@ -9,6 +9,8 @@
   "item.minerals.magnet.tooltip.state": "%d",
   "item.minerals.lithium": "Lithium",
   "item.minerals.raw_lithium": "Raw Lithium",
+  "item.minerals.eggplant": "Eggplant",
+  "item.minerals.eggplant_seeds": "Eggplant Seeds",
 
   "itemGroup.minerals.elements": "Elements",
 
@@ -21,6 +23,8 @@
   "block.minerals.deepslate_ferrite_ore": "Deepslate Ferrite Block",
   "block.minerals.lithium_ore": "Lithium Ore",
   "block.minerals.deepslate_lihtium_ore": "Deepslate Lithium Ore",
+  "block.minerals.eggplant_crop": "Eggplant Crop",
+  "block.minerals.redstone_table": "Redstone Table",
 
 
   "block.minerals.coloured_lamp_black": "Black Coloured Lamp",

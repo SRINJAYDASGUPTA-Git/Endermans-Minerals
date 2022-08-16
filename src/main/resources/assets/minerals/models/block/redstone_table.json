@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minerals:block/copper_block",
+    "east": "minerals:block/redstone_table_side",
+    "north": "minerals:block/redstone_table_front",
+    "particle": "minerals:block/redstone_table_front",
+    "south": "minerals:block/redstone_table_side",
+    "up": "minerals:block/redstone_table_top",
+    "west": "minerals:block/redstone_table_front"
+  }
+}

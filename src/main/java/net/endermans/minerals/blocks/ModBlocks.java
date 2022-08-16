@@ -2,10 +2,12 @@ package net.endermans.minerals.blocks;
 
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.custom.ColouredLampBlock;
+import net.endermans.minerals.blocks.custom.EggPlantCropBlock;
 import net.endermans.minerals.items.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.block.OreBlock;
 import net.minecraft.item.BlockItem;
@@ -290,6 +292,23 @@ public class ModBlocks {
                     ModItemGroup.ELEMENTS
             );
 
+    public static final Block EGGPLANT_CROP =
+            registerBlockWithoutItem(
+                    "eggplant_crop",
+                    new EggPlantCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
+
+    public static final Block REDSTONE_TABLE =
+            registerBlock(
+                    "redstone_table",
+                    new Block(FabricBlockSettings.
+                            of(Material.METAL).
+                            requiresTool().
+                            sounds(BlockSoundGroup.COPPER).
+                            strength(4f)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
 
 
 
@@ -300,6 +319,10 @@ public class ModBlocks {
 
     private static Block registerBlock(String name, Block block, ItemGroup tab) {
         registerBlockItem(name, block, tab);
+        return Registry.register(Registry.BLOCK, new Identifier(EndermansMinerals.MOD_ID, name), block);
+    }
+
+    private static Block registerBlockWithoutItem(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(EndermansMinerals.MOD_ID, name), block);
     }
 

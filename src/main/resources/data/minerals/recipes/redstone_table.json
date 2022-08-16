@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_block"
+    },
+    "*": {
+      "item": "minecraft:copper_ingot"
+    },
+    "@": {
+      "item": "minecraft:redstone_dust"
+    },
+    "!": {
+      "item": "minecraft:redstone_torch"
+    }
+  },
+  "pattern": [
+    "#*#",
+    "*@*",
+    "*!*"
+  ],
+  "result": {
+    "item": "minerals:redstone_table"
+  }
+}
