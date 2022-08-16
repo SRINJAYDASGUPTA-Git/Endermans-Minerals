@@ -42,7 +42,9 @@
   "block.minerals.coloured_lamp_red": "Red Coloured Lamp",
   "block.minerals.coloured_lamp_silver": "Silver Coloured Lamp",
   "block.minerals.coloured_lamp_white": "White Coloured Lamp",
-  "block.minerals.coloured_lamp_yellow": "Yellow Coloured Lamp"
+  "block.minerals.coloured_lamp_yellow": "Yellow Coloured Lamp",
+
+  "entity.minecraft.villager.engineer": "Engineer"
 
 
 }

@@ -4,6 +4,7 @@ import net.endermans.minerals.blocks.ModBlocks;
 import net.endermans.minerals.items.ModItemGroup;
 import net.endermans.minerals.items.ModItems;
 import net.endermans.minerals.items.custom.MagnetItem;
+import net.endermans.minerals.villager.ModVillagers;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
@@ -24,6 +25,10 @@ public class EndermansMinerals implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+
+		ModVillagers.registerVillagers();
+		ModVillagers.registerTraders();
+
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"magnet"), MAGNET_ITEM_INSTANCE);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"strong_magnet"), STRONG_MAGNET_ITEM_INSTANCE);
 	}
