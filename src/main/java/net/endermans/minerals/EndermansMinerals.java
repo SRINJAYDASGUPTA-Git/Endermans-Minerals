@@ -5,6 +5,8 @@ import net.endermans.minerals.items.ModItemGroup;
 import net.endermans.minerals.items.ModItems;
 import net.endermans.minerals.items.custom.MagnetItem;
 import net.endermans.minerals.villager.ModVillagers;
+import net.endermans.minerals.world.feature.ModConfiguredFeature;
+import net.endermans.minerals.world.gen.ModOreGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
@@ -22,6 +24,8 @@ public class EndermansMinerals implements ModInitializer {
 	public static final MagnetItem STRONG_MAGNET_ITEM_INSTANCE = new MagnetItem((short)32, 1024, (short)7);
 	@Override
 	public void onInitialize() {
+		ModConfiguredFeature.registerConfiguredFeatures();
+		ModOreGeneration.generateOres();
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();

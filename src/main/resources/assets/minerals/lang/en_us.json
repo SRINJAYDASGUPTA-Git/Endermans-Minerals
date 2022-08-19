@@ -11,6 +11,12 @@
   "item.minerals.raw_lithium": "Raw Lithium",
   "item.minerals.eggplant": "Eggplant",
   "item.minerals.eggplant_seeds": "Eggplant Seeds",
+  "item.minerals.dandelions_music_disc": "Dandelions Music Disc",
+  "item.minerals.dandelions_music_disc.desc": "Ruth B - Dandelions (CC0) ",
+  "item.minerals.one_dance_music_disc": "One Dance Music Disc",
+  "item.minerals.one_dance_music_disc.desc": "One Dance - Drake (CC0) ",
+  "item.minerals.watermelon_sugar_music_disc": "Watermelon Sugar Music Disc",
+  "item.minerals.watermelon_sugar_music_disc.desc": "Harry Styles - Watermelon Sugar (CC0) ",
 
   "itemGroup.minerals.elements": "Elements",
 

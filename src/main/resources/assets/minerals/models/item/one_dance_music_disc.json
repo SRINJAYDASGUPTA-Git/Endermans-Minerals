@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "minerals:item/one_dance_music_disc"
+  }
+}

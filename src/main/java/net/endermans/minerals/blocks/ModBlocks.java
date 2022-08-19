@@ -3,6 +3,7 @@ package net.endermans.minerals.blocks;
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.custom.ColouredLampBlock;
 import net.endermans.minerals.blocks.custom.EggPlantCropBlock;
+import net.endermans.minerals.blocks.custom.MortarPestleBlock;
 import net.endermans.minerals.items.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -279,18 +280,6 @@ public class ModBlocks {
                     ModItemGroup.ELEMENTS
             );
 
-    public static final Block DEEPSLATE_LITHIUM_ORE =
-            registerBlock(
-                    "deepslate_lithium_ore",
-                    new OreBlock(FabricBlockSettings.
-                            of(Material.STONE).
-                            strength(4f).
-                            requiresTool().
-                            sounds(BlockSoundGroup.DEEPSLATE),
-                            UniformIntProvider.create(3, 7)
-                    ),
-                    ModItemGroup.ELEMENTS
-            );
 
     public static final Block EGGPLANT_CROP =
             registerBlockWithoutItem(
@@ -305,6 +294,18 @@ public class ModBlocks {
                             requiresTool().
                             sounds(BlockSoundGroup.COPPER).
                             strength(4f)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+    public static final Block MORTAR_PESTLE =
+            registerBlock(
+                    "mortar_pestle",
+                    new MortarPestleBlock(FabricBlockSettings.
+                            of(Material.METAL).
+                            requiresTool().
+                            strength(4f).
+                            nonOpaque()
                     ),
                     ModItemGroup.ELEMENTS
             );

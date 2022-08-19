@@ -1,0 +1,27 @@
+{
+  "dandelions": {
+    "sounds": [
+      {
+        "name": "minerals:dandelions",
+        "stream": true
+      }
+    ]
+  },
+  "one_dance": {
+    "sounds": [
+      {
+        "name": "minerals:one_dance",
+        "stream": true
+      }
+    ]
+  },
+  "watermelon_sugar": {
+    "sounds": [
+      {
+        "name": "minerals:watermelon_sugar",
+        "stream": true
+      }
+    ]
+  }
+
+}

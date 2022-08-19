@@ -2,10 +2,13 @@ package net.endermans.minerals.items;
 
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.ModBlocks;
+import net.endermans.minerals.items.custom.ModMusicDiscItem;
+import net.endermans.minerals.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
+import net.minecraft.item.MusicDiscItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -68,6 +71,32 @@ public class ModItems {
                         )
                 )
         );
+
+    public static final Item DANDELIONS_MUSIC_DISC =
+            registerItem(
+                    "dandelions_music_disc",
+                    new ModMusicDiscItem(7, ModSounds.DANDELIONS,
+                            new FabricItemSettings().
+                            group(EndermansMinerals.ELEMENTS).maxCount(1),
+                            233));
+
+    public static final Item ONE_DANCE_MUSIC_DISC =
+            registerItem(
+                    "one_dance_music_disc",
+                    new ModMusicDiscItem(7, ModSounds.ONE_DANCE,
+                            new FabricItemSettings().
+                            group(EndermansMinerals.ELEMENTS).maxCount(1),
+                            175));
+
+    public static final Item WATERMELON_SUGAR_MUSIC_DISC =
+            registerItem(
+                    "watermelon_sugar_music_disc",
+                    new ModMusicDiscItem(7, ModSounds.WATERMELON_SUGAR,
+                            new FabricItemSettings().
+                            group(EndermansMinerals.ELEMENTS).maxCount(1),
+                            174));
+
+
 
 
 
