@@ -96,6 +96,12 @@ public class ModItems {
                             group(EndermansMinerals.ELEMENTS).maxCount(1),
                             174));
 
+    public static final Item LITHIUM_DUST =
+            registerItem(
+                    "lithium_dust",
+                    new Item(new FabricItemSettings().
+                            group(EndermansMinerals.ELEMENTS)));
+
 
 
 
