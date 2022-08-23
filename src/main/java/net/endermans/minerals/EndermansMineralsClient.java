@@ -2,10 +2,13 @@ package net.endermans.minerals;
 
 import net.endermans.minerals.blocks.ModBlocks;
 import net.endermans.minerals.fluid.ModFluids;
+import net.endermans.minerals.screen.ModScreenHandlers;
+import net.endermans.minerals.screen.MortarPestleScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 
@@ -23,5 +26,7 @@ public class EndermansMineralsClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),
                 ModFluids.STILL_SOAP_WATER, ModFluids.FLOWING_SOAP_WATER);
+
+        HandledScreens.register(ModScreenHandlers.MORTAR_PESTLE_SCREEN_HANDLER, MortarPestleScreen::new);
     }
 }

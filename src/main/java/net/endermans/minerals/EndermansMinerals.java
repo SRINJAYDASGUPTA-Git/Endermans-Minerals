@@ -1,10 +1,12 @@
 package net.endermans.minerals;
 
 import net.endermans.minerals.blocks.ModBlocks;
+import net.endermans.minerals.blocks.entity.ModBlockEntities;
 import net.endermans.minerals.fluid.ModFluids;
 import net.endermans.minerals.items.ModItemGroup;
 import net.endermans.minerals.items.ModItems;
 import net.endermans.minerals.items.custom.MagnetItem;
+import net.endermans.minerals.screen.ModScreenHandlers;
 import net.endermans.minerals.util.ModLootTableModifiers;
 import net.endermans.minerals.villager.ModVillagers;
 import net.endermans.minerals.world.feature.ModConfiguredFeature;
@@ -38,6 +40,10 @@ public class EndermansMinerals implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 
 		ModFluids.register();
+
+		ModBlockEntities.registerBlockEntites();
+
+		ModScreenHandlers.registerAllScreenHandlers();
 
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"magnet"), MAGNET_ITEM_INSTANCE);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"strong_magnet"), STRONG_MAGNET_ITEM_INSTANCE);
