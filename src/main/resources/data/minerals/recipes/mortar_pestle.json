@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minerals:ferrite"
+    },
+    "@": {
+      "item": "minecraft:iron_ingot"
+    },
+    "!": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    "  !",
+    "#@#",
+    "###"
+  ],
+  "result": {
+    "item": "minerals:mortar_pestle"
+  }
+}

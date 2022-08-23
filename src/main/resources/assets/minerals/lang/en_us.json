@@ -12,6 +12,8 @@
   "item.minerals.raw_lithium": "Raw Lithium",
   "item.minerals.eggplant": "Eggplant",
   "item.minerals.eggplant_seeds": "Eggplant Seeds",
+  "item.minerals.blank_disc": "Blank Disc",
+  "item.minerals.blank_disc_fragment": "Blank Disc Fragment",
   "item.minerals.dandelions_music_disc": "Dandelions Music Disc",
   "item.minerals.dandelions_music_disc.desc": "Ruth B - Dandelions (CC0) ",
   "item.minerals.one_dance_music_disc": "One Dance Music Disc",
@@ -20,6 +22,7 @@
   "item.minerals.watermelon_sugar_music_disc.desc": "Harry Styles - Watermelon Sugar (CC0) ",
 
   "itemGroup.minerals.elements": "Elements",
+  "itemGroup.minerals.discs": "Discs",
 
 
 
@@ -32,6 +35,8 @@
   "block.minerals.deepslate_lihtium_ore": "Deepslate Lithium Ore",
   "block.minerals.eggplant_crop": "Eggplant Crop",
   "block.minerals.redstone_table": "Redstone Table",
+  "block.minerals.mortar_pestle": "Mortar and Pestle",
+
 
 
   "block.minerals.coloured_lamp_black": "Black Coloured Lamp",
@@ -51,7 +56,8 @@
   "block.minerals.coloured_lamp_white": "White Coloured Lamp",
   "block.minerals.coloured_lamp_yellow": "Yellow Coloured Lamp",
 
-  "entity.minecraft.villager.engineer": "Engineer"
+  "entity.minecraft.villager.engineer": "Engineer",
+  "entity.minecraft.villager.musician": "Musician"
 
 
 }

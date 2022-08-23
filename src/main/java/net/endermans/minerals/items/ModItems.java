@@ -77,7 +77,7 @@ public class ModItems {
                     "dandelions_music_disc",
                     new ModMusicDiscItem(7, ModSounds.DANDELIONS,
                             new FabricItemSettings().
-                            group(EndermansMinerals.ELEMENTS).maxCount(1),
+                            group(ModItemGroup.DISCS).maxCount(1),
                             233));
 
     public static final Item ONE_DANCE_MUSIC_DISC =
@@ -85,7 +85,7 @@ public class ModItems {
                     "one_dance_music_disc",
                     new ModMusicDiscItem(7, ModSounds.ONE_DANCE,
                             new FabricItemSettings().
-                            group(EndermansMinerals.ELEMENTS).maxCount(1),
+                            group(ModItemGroup.DISCS).maxCount(1),
                             175));
 
     public static final Item WATERMELON_SUGAR_MUSIC_DISC =
@@ -93,7 +93,7 @@ public class ModItems {
                     "watermelon_sugar_music_disc",
                     new ModMusicDiscItem(7, ModSounds.WATERMELON_SUGAR,
                             new FabricItemSettings().
-                            group(EndermansMinerals.ELEMENTS).maxCount(1),
+                            group(ModItemGroup.DISCS).maxCount(1),
                             174));
 
     public static final Item LITHIUM_DUST =
@@ -101,6 +101,20 @@ public class ModItems {
                     "lithium_dust",
                     new Item(new FabricItemSettings().
                             group(EndermansMinerals.ELEMENTS)));
+
+    public static final Item BLANK_DISC =
+            registerItem(
+                    "blank_disc",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.DISCS)));
+
+    public static final Item BLANK_DISC_FRAGMENT =
+            registerItem(
+                    "blank_disc_fragment",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.DISCS)));
+
+
 
 
 

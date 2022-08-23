@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.object.builder.v1.villager.VillagerProfessionBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
@@ -20,10 +21,23 @@ import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
 
 public class ModVillagers {
-    public static final PointOfInterestType REDSTONE_TABLE_POI = registerPOI("redstone_table_poi", ModBlocks.REDSTONE_TABLE);
-    public static final VillagerProfession ENGINEER = registerProfession("engineer",
+    public static final PointOfInterestType REDSTONE_TABLE_POI =
+            registerPOI("redstone_table_poi", ModBlocks.REDSTONE_TABLE);
+    public static final PointOfInterestType JUKEBOX_POI =
+            registerPOI("jukebox_poi", Blocks.JUKEBOX);
+    public static final VillagerProfession ENGINEER =
+            registerProfession("engineer",
             RegistryKey.of(Registry.POINT_OF_INTEREST_TYPE_KEY,
-                    new Identifier(EndermansMinerals.MOD_ID, "redstone_table_poi")));
+                    new Identifier(
+                            EndermansMinerals.MOD_ID, "redstone_table_poi"
+                    )));
+
+    public static final VillagerProfession MUSICIAN =
+            registerProfession("musician",
+            RegistryKey.of(Registry.POINT_OF_INTEREST_TYPE_KEY,
+                    new Identifier(
+                            EndermansMinerals.MOD_ID, "jukebox_poi"
+                    )));
 
 
 
@@ -118,7 +132,7 @@ public class ModVillagers {
 
 
                 });
-        TradeOfferHelper.registerVillagerOffers(ENGINEER, 1,
+        TradeOfferHelper.registerVillagerOffers(ENGINEER, 5,
                 factories -> {
                     factories.add(((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 8),
@@ -132,5 +146,23 @@ public class ModVillagers {
                     )));
 
                 });
+
+        /*MUSICIAN TRADES*/
+        TradeOfferHelper.registerVillagerOffers(MUSICIAN, 1,
+                factories -> {
+                    factories.add(((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 8),
+                            new ItemStack(Items.MUSIC_DISC_CAT, 1),
+                            6, 6, 0.02f
+                    )));
+                    factories.add(((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 8),
+                            new ItemStack(Items.PISTON, 4),
+                            6, 8, 0.02f
+                    )));
+
+                });
+
+
     }
 }
