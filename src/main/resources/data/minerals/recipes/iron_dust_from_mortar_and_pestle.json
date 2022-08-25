@@ -1,0 +1,11 @@
+{
+  "type": "minerals:mortar_pestle",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "output": {
+    "item":"minerals:iron_dust"
+  }
+}

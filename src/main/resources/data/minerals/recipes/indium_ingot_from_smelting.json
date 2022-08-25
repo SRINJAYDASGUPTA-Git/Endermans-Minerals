@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 150,
+  "experience": 1,
+  "ingredient": {
+    "item": "minerals:raw_indium"
+  },
+  "result": "minerals:indium_ingot"
+}

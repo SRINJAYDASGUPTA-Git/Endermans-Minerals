@@ -43,6 +43,31 @@ public class ModBlocks {
                     ),
                     ModItemGroup.ELEMENTS
             );
+
+    public static final Block INDIUM_ORE =
+            registerBlock(
+                    "indium_ore",
+                    new OreBlock(FabricBlockSettings.
+                            of(Material.STONE).
+                            strength(4f).
+                            requiresTool(),
+                            UniformIntProvider.create(3, 7)),
+                    ModItemGroup.ELEMENTS
+            );
+    public static final Block DEEPSLATE_INDIUM_ORE =
+            registerBlock(
+                    "deepslate_indium_ore",
+                    new OreBlock(FabricBlockSettings.
+                            of(Material.STONE).
+                            strength(1.5f).
+                            requiresTool().
+                            sounds(BlockSoundGroup.DEEPSLATE),
+                            UniformIntProvider.create(3, 7)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+
     public static final Block FERRITE_BLOCK =
             registerBlock(
                     "ferrite_block",

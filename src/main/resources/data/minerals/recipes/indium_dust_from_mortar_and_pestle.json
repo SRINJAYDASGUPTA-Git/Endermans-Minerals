@@ -1,0 +1,11 @@
+{
+  "type": "minerals:mortar_pestle",
+  "ingredients": [
+    {
+      "item": "minerals:indium_ingot"
+    }
+  ],
+  "output": {
+    "item":"minerals:indium_dust"
+  }
+}

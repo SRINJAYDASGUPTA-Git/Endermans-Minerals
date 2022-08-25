@@ -1,6 +1,7 @@
 package net.endermans.minerals.blocks.entity;
 
 import net.endermans.minerals.items.ModItems;
+import net.endermans.minerals.recipe.MortarPestleRecipe;
 import net.endermans.minerals.screen.MortarPestleScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -20,6 +21,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class MortarPestleBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
@@ -118,11 +121,14 @@ public class MortarPestleBlockEntity extends BlockEntity implements NamedScreenH
         for (int i = 0; i< entity.size(); i++){
             inventory.setStack(i, entity.getStack(i));
         }
+        Optional<MortarPestleRecipe> recipe = entity.getWorld().getRecipeManager().
+                getFirstMatch(MortarPestleRecipe.Type.INSTANCE,
+                        inventory, entity.getWorld());
 
         if(hasRecipe(entity)){
             entity.removeStack(0, 1);
 
-            entity.setStack(1, new ItemStack(ModItems.LITHIUM_DUST,
+            entity.setStack(1, new ItemStack(recipe.get().getOutput().getItem(),
                     entity.getStack(1).getCount() + 1));
             entity.resetProgress();
         }
@@ -134,10 +140,11 @@ public class MortarPestleBlockEntity extends BlockEntity implements NamedScreenH
             inventory.setStack(i, entity.getStack(i));
         }
 
-        boolean hasIntactIngotInFirstSlot =
-                entity.getStack(0).getItem() == ModItems.LITHIUM;
-        return hasIntactIngotInFirstSlot && canInsertAmountIntoOutputSlot(inventory, 1)
-                && canInsertAmountIntoOutputSlot(inventory, ModItems.LITHIUM_DUST);
+        Optional<MortarPestleRecipe> match = entity.getWorld().getRecipeManager().
+                getFirstMatch(MortarPestleRecipe.Type.INSTANCE,
+                        inventory, entity.getWorld());
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory, 1)
+                && canInsertAmountIntoOutputSlot(inventory, match.get().getOutput().getItem());
 
     }
 

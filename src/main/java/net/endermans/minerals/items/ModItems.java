@@ -114,6 +114,42 @@ public class ModItems {
                     new Item(new FabricItemSettings().
                             group(ModItemGroup.DISCS)));
 
+    public static final Item RAW_INDIUM =
+            registerItem(
+                    "raw_indium",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.ELEMENTS)));
+
+    public static final Item INDIUM_INGOT =
+            registerItem(
+                    "indium_ingot",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.ELEMENTS)));
+
+    public static final Item INDIUM_DUST =
+            registerItem(
+                    "indium_dust",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.ELEMENTS)));
+
+    public static final Item IRON_DUST =
+            registerItem(
+                    "iron_dust",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.ELEMENTS)));
+
+
+    public static final Item BISMUTH_CRYSTAL =
+            registerItem(
+                    "bismuth_crystal",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.ELEMENTS)));
+
+
+
+
+
+
 
 
 

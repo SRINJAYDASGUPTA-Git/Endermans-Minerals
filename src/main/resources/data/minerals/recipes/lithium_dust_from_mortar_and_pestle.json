@@ -1,0 +1,11 @@
+{
+  "type": "minerals:mortar_pestle",
+  "ingredients": [
+    {
+      "item": "minerals:lithium"
+    }
+  ],
+  "output": {
+    "item":"minerals:lithium_dust"
+  }
+}
