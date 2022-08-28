@@ -67,6 +67,29 @@ public class ModBlocks {
                     ModItemGroup.ELEMENTS
             );
 
+    public static final Block BISMUTH_ORE =
+            registerBlock(
+                    "bismuth_ore",
+                    new OreBlock(FabricBlockSettings.
+                            of(Material.STONE).
+                            strength(4f).
+                            requiresTool(),
+                            UniformIntProvider.create(3, 7)),
+                    ModItemGroup.ELEMENTS
+            );
+    public static final Block DEEPSLATE_BISMUTH_ORE =
+            registerBlock(
+                    "deepslate_bismuth_ore",
+                    new OreBlock(FabricBlockSettings.
+                            of(Material.STONE).
+                            strength(1.5f).
+                            requiresTool().
+                            sounds(BlockSoundGroup.DEEPSLATE),
+                            UniformIntProvider.create(3, 7)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
 
     public static final Block FERRITE_BLOCK =
             registerBlock(

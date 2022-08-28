@@ -138,6 +138,12 @@ public class ModItems {
                     new Item(new FabricItemSettings().
                             group(ModItemGroup.ELEMENTS)));
 
+    public static final Item BISMUTH_DUST =
+            registerItem(
+                    "bismuth_dust",
+                    new Item(new FabricItemSettings().
+                            group(ModItemGroup.ELEMENTS)));
+
 
     public static final Item BISMUTH_CRYSTAL =
             registerItem(
