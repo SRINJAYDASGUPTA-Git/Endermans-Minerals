@@ -19,6 +19,16 @@ public class ModPlacedFeatures {
                                             YOffset.fixed(80)
                                     )
                     ));
+    public static RegistryEntry<PlacedFeature> INDIUM_ORE_PLACED =
+            PlacedFeatures.register("indium_ore_placed",
+            ModConfiguredFeature.INDIUM_ORE,
+                    modifiersWithCount(
+                            5,
+                            HeightRangePlacementModifier.
+                                    trapezoid(YOffset.fixed(-80),
+                                            YOffset.fixed(80)
+                                    )
+                    ));
 
 public static RegistryEntry<PlacedFeature> LITHIUM_ORE_PLACED =
             PlacedFeatures.register("lithium_ore_placed",

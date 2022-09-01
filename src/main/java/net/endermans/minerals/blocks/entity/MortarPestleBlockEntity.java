@@ -1,5 +1,6 @@
 package net.endermans.minerals.blocks.entity;
 
+import net.endermans.minerals.blocks.custom.MortarPestleBlock;
 import net.endermans.minerals.items.ModItems;
 import net.endermans.minerals.recipe.MortarPestleRecipe;
 import net.endermans.minerals.screen.MortarPestleScreenHandler;
@@ -19,6 +20,7 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -114,6 +116,56 @@ public class MortarPestleBlockEntity extends BlockEntity implements NamedScreenH
 
     private void resetProgress() {
         this.progress = 0;
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        Direction localDir = this.getWorld().getBlockState(this.pos).get(MortarPestleBlock.FACING);
+
+        if(side == Direction.UP || side == Direction.DOWN)
+            return false;
+
+        return switch (localDir){
+            default ->
+                    side.getOpposite() == Direction.NORTH && slot == 0||
+                    side.getOpposite() == Direction.EAST && slot == 0;
+            case SOUTH ->
+                    side == Direction.NORTH && slot == 0||
+                    side == Direction.EAST && slot == 0;
+
+            case WEST ->
+                    side.rotateYCounterclockwise() == Direction.NORTH && slot == 0||
+                    side.rotateYCounterclockwise() == Direction.EAST && slot == 0;
+            case EAST ->
+                    side.rotateYClockwise() == Direction.NORTH && slot == 0||
+                    side.rotateYClockwise() == Direction.EAST && slot == 0;
+        };
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        Direction localDir = this.getWorld().getBlockState(this.pos).get(MortarPestleBlock.FACING);
+
+        if(side == Direction.UP )
+            return false;
+        if(side == Direction.DOWN)
+            return slot == 2;
+
+        return switch (localDir){
+            default ->
+                    side.getOpposite() == Direction.SOUTH && slot == 2||
+                            side.getOpposite() == Direction.EAST && slot == 2;
+            case SOUTH ->
+                    side == Direction.SOUTH && slot ==2||
+                            side == Direction.EAST && slot == 2;
+
+            case WEST ->
+                    side.rotateYCounterclockwise() == Direction.SOUTH && slot == 2||
+                            side.rotateYCounterclockwise() == Direction.EAST && slot == 2;
+            case EAST ->
+                    side.rotateYClockwise() == Direction.SOUTH && slot == 2||
+                            side.rotateYClockwise() == Direction.EAST && slot == 2;
+        };
     }
 
     private static void craftItem(MortarPestleBlockEntity entity) {

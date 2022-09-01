@@ -30,7 +30,7 @@ public class ModConfiguredFeature {
             ConfiguredFeatures.register("ferrite_ore", Feature.ORE, new OreFeatureConfig(OVERWORLD_FERRITE_ORES, 9));
 
     public static RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> INDIUM_ORE =
-            ConfiguredFeatures.register("ferrite_ore", Feature.ORE, new OreFeatureConfig(OVERWORLD_INDIUM_ORES, 9));
+            ConfiguredFeatures.register("indium_ore", Feature.ORE, new OreFeatureConfig(OVERWORLD_INDIUM_ORES, 9));
 
 
 
