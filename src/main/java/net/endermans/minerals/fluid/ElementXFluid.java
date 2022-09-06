@@ -15,7 +15,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
-public abstract class SoapWaterFluid extends FlowableFluid {
+public abstract class ElementXFluid extends FlowableFluid {
     @Override
     protected boolean isInfinite() {
         return false;
@@ -29,7 +29,7 @@ public abstract class SoapWaterFluid extends FlowableFluid {
 
     @Override
     protected int getFlowSpeed(WorldView world) {
-        return 4;
+        return 2;
     }
 
     @Override
@@ -64,22 +64,22 @@ public abstract class SoapWaterFluid extends FlowableFluid {
 
     @Override
     public Fluid getStill() {
-        return ModFluids.STILL_SOAP_WATER;
+        return ModFluids.STILL_ELEMENTX;
     }
 
     @Override
     public Fluid getFlowing() {
-        return ModFluids.FLOWING_SOAP_WATER;
+        return ModFluids.FLOWING_ELEMENTX;
     }
 
     @Override
     public Item getBucketItem() {
-        return ModFluids.SOAP_WATER_BUCKET;
+        return ModFluids.ELEMENTX_BUCKET;
     }
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return ModFluids.SOAP_WATER_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
+        return ModFluids.ELEMENTX_BLOCK.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override
@@ -87,7 +87,7 @@ public abstract class SoapWaterFluid extends FlowableFluid {
         return false;
     }
 
-    public static class Flowing extends SoapWaterFluid {
+    public static class Flowing extends ElementXFluid {
         @Override
         protected void appendProperties(StateManager.Builder<Fluid, FluidState> builder) {
             super.appendProperties(builder);
@@ -105,10 +105,10 @@ public abstract class SoapWaterFluid extends FlowableFluid {
         }
     }
 
-    public static class Still extends SoapWaterFluid {
+    public static class Still extends ElementXFluid {
         @Override
         public int getLevel(FluidState state) {
-            return 8;
+            return 5;
         }
 
         @Override

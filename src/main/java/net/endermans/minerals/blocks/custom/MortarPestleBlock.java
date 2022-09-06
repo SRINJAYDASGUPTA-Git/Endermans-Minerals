@@ -15,12 +15,20 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class MortarPestleBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
+    public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 10, 15, 10);
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
+    }
 
     public MortarPestleBlock(Settings settings) {
         super(settings);
@@ -54,6 +62,7 @@ public class MortarPestleBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
+
         return BlockRenderType.MODEL;
     }
 

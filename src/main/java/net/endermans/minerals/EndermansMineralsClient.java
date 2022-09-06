@@ -17,16 +17,17 @@ public class EndermansMineralsClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.EGGPLANT_CROP, RenderLayer.getCutout());
 
-        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_SOAP_WATER, ModFluids.FLOWING_SOAP_WATER,
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_ELEMENTX, ModFluids.FLOWING_ELEMENTX,
                 new SimpleFluidRenderHandler(
                         new Identifier("minecraft:block/water_still"),
                         new Identifier("minecraft:block/water_flow"),
-                        0xA17C39E6
+                        0xA020024f
                 ));
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),
-                ModFluids.STILL_SOAP_WATER, ModFluids.FLOWING_SOAP_WATER);
+                ModFluids.STILL_ELEMENTX, ModFluids.FLOWING_ELEMENTX);
 
         HandledScreens.register(ModScreenHandlers.MORTAR_PESTLE_SCREEN_HANDLER, MortarPestleScreen::new);
+        
     }
 }

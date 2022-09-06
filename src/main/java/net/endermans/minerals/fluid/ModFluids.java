@@ -15,20 +15,20 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModFluids {
-    public static FlowableFluid STILL_SOAP_WATER;
-    public static FlowableFluid FLOWING_SOAP_WATER;
-    public static Block SOAP_WATER_BLOCK;
-    public static Item SOAP_WATER_BUCKET;
+    public static FlowableFluid STILL_ELEMENTX;
+    public static FlowableFluid FLOWING_ELEMENTX;
+    public static Block ELEMENTX_BLOCK;
+    public static Item ELEMENTX_BUCKET;
 
     public static void register() {
-        STILL_SOAP_WATER = Registry.register(Registry.FLUID,
-                new Identifier(EndermansMinerals.MOD_ID, "soap_water"), new SoapWaterFluid.Still());
-        FLOWING_SOAP_WATER = Registry.register(Registry.FLUID,
-                new Identifier(EndermansMinerals.MOD_ID, "flowing_soap_water"), new SoapWaterFluid.Flowing());
+        STILL_ELEMENTX = Registry.register(Registry.FLUID,
+                new Identifier(EndermansMinerals.MOD_ID, "elementx"), new ElementXFluid.Still());
+        FLOWING_ELEMENTX = Registry.register(Registry.FLUID,
+                new Identifier(EndermansMinerals.MOD_ID, "flowing_elementx"), new ElementXFluid.Flowing());
 
-        SOAP_WATER_BLOCK = Registry.register(Registry.BLOCK, new Identifier(EndermansMinerals.MOD_ID, "soap_water_block"),
-                new FluidBlock(ModFluids.STILL_SOAP_WATER, FabricBlockSettings.copyOf(Blocks.WATER)){ });
-        SOAP_WATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(EndermansMinerals.MOD_ID, "soap_water_bucket"),
-                new BucketItem(ModFluids.STILL_SOAP_WATER, new FabricItemSettings().group(ModItemGroup.ELEMENTS).recipeRemainder(Items.BUCKET).maxCount(1)));
+        ELEMENTX_BLOCK = Registry.register(Registry.BLOCK, new Identifier(EndermansMinerals.MOD_ID, "elementx_block"),
+                new FluidBlock(ModFluids.STILL_ELEMENTX, FabricBlockSettings.copyOf(Blocks.WATER)){ });
+        ELEMENTX_BUCKET = Registry.register(Registry.ITEM, new Identifier(EndermansMinerals.MOD_ID, "elementx_bucket"),
+                new BucketItem(ModFluids.STILL_ELEMENTX, new FabricItemSettings().group(ModItemGroup.ELEMENTS).recipeRemainder(Items.BUCKET).maxCount(1)));
     }
 }

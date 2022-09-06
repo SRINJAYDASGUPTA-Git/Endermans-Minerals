@@ -32,31 +32,37 @@ public class MortarPestleRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public ItemStack craft(SimpleInventory inventory) {
+
         return output;
     }
 
     @Override
     public boolean fits(int width, int height) {
+
         return true;
     }
 
     @Override
     public ItemStack getOutput() {
+
         return output.copy();
     }
 
     @Override
     public Identifier getId() {
+
         return id;
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
+
         return Serializer.INSTANCE;
     }
 
     @Override
     public RecipeType<?> getType() {
+
         return Type.INSTANCE;
     }
 
