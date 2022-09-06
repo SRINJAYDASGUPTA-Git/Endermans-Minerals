@@ -11,11 +11,19 @@ import net.minecraft.util.registry.Registry;
 public class ModBlockEntities {
 
     public static BlockEntityType<MortarPestleBlockEntity> MORTAL_PESTLE;
+    public static BlockEntityType<SmelterBlockEntity> SMELTER;
 
     public static void registerBlockEntites(){
         MORTAL_PESTLE = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 new Identifier(EndermansMinerals.MOD_ID, "mortar_pestle"),
                 FabricBlockEntityTypeBuilder.create(MortarPestleBlockEntity::new,
                         ModBlocks.MORTAR_PESTLE).build(null));
+
+        SMELTER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
+                new Identifier(EndermansMinerals.MOD_ID, "smelter"),
+                FabricBlockEntityTypeBuilder.create(SmelterBlockEntity::new,
+                        ModBlocks.SMELTER).build(null));
+
+
     }
 }

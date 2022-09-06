@@ -13,5 +13,15 @@ public class ModRecipes {
         Registry.register(Registry.RECIPE_TYPE,
                 new Identifier(EndermansMinerals.MOD_ID, MortarPestleRecipe.Type.ID),
                 MortarPestleRecipe.Type.INSTANCE);
+
+        Registry.register(Registry.RECIPE_SERIALIZER,
+                new Identifier(EndermansMinerals.MOD_ID,
+                        SmelterRecipe.Serializer.ID),
+                SmelterRecipe.Serializer.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE,
+                new Identifier(EndermansMinerals.MOD_ID, SmelterRecipe.Type.ID),
+                SmelterRecipe.Type.INSTANCE);
+
+
     }
 }

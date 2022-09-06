@@ -4,6 +4,7 @@ import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.custom.ColouredLampBlock;
 import net.endermans.minerals.blocks.custom.EggPlantCropBlock;
 import net.endermans.minerals.blocks.custom.MortarPestleBlock;
+import net.endermans.minerals.blocks.custom.SmelterBlock;
 import net.endermans.minerals.items.ModItemGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -350,6 +351,18 @@ public class ModBlocks {
             registerBlock(
                     "mortar_pestle",
                     new MortarPestleBlock(FabricBlockSettings.
+                            of(Material.METAL).
+                            requiresTool().
+                            strength(4f).
+                            nonOpaque()
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+    public static final Block SMELTER =
+            registerBlock(
+                    "smelter",
+                    new SmelterBlock(FabricBlockSettings.
                             of(Material.METAL).
                             requiresTool().
                             strength(4f).

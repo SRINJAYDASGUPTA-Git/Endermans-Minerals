@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "minerals:block/smelter",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "minerals:block/smelter",
+      "y" : 180
+    },
+    "facing=south": {
+      "model": "minerals:block/smelter"
+    },
+    "facing=west": {
+      "model": "minerals:block/smelter",
+      "y": 90
+    }
+  }
+}
