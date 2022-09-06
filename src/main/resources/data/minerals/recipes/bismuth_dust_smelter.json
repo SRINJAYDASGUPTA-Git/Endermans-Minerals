@@ -1,0 +1,11 @@
+{
+  "type": "minerals:smelter_melting",
+  "ingredients": [
+    {
+      "item": "minerals:bismuth_crystal"
+    }
+  ],
+  "output": {
+    "item":"minerals:bismuth_dust"
+  }
+}

@@ -1,10 +1,10 @@
 package net.endermans.minerals.blocks.entity;
 
+import net.endermans.minerals.items.ModItems;
 import net.endermans.minerals.recipe.SmelterRecipe;
 import net.endermans.minerals.screen.SmelterScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -129,12 +129,8 @@ public class SmelterBlockEntity extends BlockEntity implements ImplementedInvent
         for (int i = 0; i < entity.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
         }
+        Optional<SmelterRecipe> match = entity.getWorld().getRecipeManager().getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, entity.getWorld());
 
-        Optional<SmelterRecipe> match = entity.getWorld().getRecipeManager()
-                .getFirstMatch(SmelterRecipe.Type.INSTANCE, inventory, entity.getWorld());
-
-//        boolean hasRawGemInFirstSlot = entity.getStack(1).getItem() == ModItems.RICE_BOWL;
-//
         return match.isPresent() && canInsertAmountIntoOutputSlot(inventory)
                 && canInsertItemIntoOutputSlot(inventory, match.get().getOutput().getItem());
     }
