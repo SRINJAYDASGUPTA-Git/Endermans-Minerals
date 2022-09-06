@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 public class SmelterBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
-    public static final VoxelShape SHAPE = Block.createCuboidShape(-1, 0, 0, 16, 17, 16);
+    public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 17, 16);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
