@@ -84,7 +84,7 @@ public class SmelterBlock extends BlockWithEntity implements BlockEntityProvider
                               PlayerEntity player, Hand hand,
                               BlockHitResult hit) {
         if(!world.isClient){
-            NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
+            NamedScreenHandlerFactory screenHandlerFactory = ((SmelterBlockEntity) world.getBlockEntity(pos));
 
             if(screenHandlerFactory != null){
                 player.openHandledScreen(screenHandlerFactory);

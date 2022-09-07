@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import team.reborn.energy.api.EnergyStorage;
 
 public class ModBlockEntities {
 
@@ -23,6 +24,8 @@ public class ModBlockEntities {
                 new Identifier(EndermansMinerals.MOD_ID, "smelter"),
                 FabricBlockEntityTypeBuilder.create(SmelterBlockEntity::new,
                         ModBlocks.SMELTER).build(null));
+
+        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, SMELTER);
 
 
     }

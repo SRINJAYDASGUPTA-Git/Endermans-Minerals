@@ -1,5 +1,6 @@
 package net.endermans.minerals.screen;
 
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.screen.ScreenHandlerType;
 
 
@@ -10,6 +11,6 @@ public class ModScreenHandlers {
 
     public static  void registerAllScreenHandlers(){
         MORTAR_PESTLE_SCREEN_HANDLER = new ScreenHandlerType<>(MortarPestleScreenHandler::new);
-        SMELTER_SCREEN_HANDLER = new ScreenHandlerType<>(SmelterScreenHandler::new);
+        SMELTER_SCREEN_HANDLER = new ExtendedScreenHandlerType<>(SmelterScreenHandler::new);
     }
 }
