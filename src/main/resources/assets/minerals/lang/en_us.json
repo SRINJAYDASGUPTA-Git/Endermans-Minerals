@@ -48,6 +48,8 @@
   "block.minerals.eggplant_crop": "Eggplant Crop",
   "block.minerals.redstone_table": "Redstone Table",
   "block.minerals.mortar_pestle": "Mortar and Pestle",
+  "block.minerals.elementx": "Element X",
+  "block.minecraft.empty": "Empty",
 
 
 
@@ -69,7 +71,11 @@
   "block.minerals.coloured_lamp_yellow": "Yellow Coloured Lamp",
 
   "entity.minecraft.villager.engineer": "Engineer",
-  "entity.minecraft.villager.musician": "Musician"
+  "entity.minecraft.villager.musician": "Musician",
+
+
+  "minerals.tooltip.liquid.amount.with.capacity": "%s / %s mB",
+  "minerals.tooltip.liquid.amount": "%s mB"
 
 
 }

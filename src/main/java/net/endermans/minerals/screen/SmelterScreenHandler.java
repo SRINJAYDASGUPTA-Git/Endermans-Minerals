@@ -1,6 +1,7 @@
 package net.endermans.minerals.screen;
 
 import net.endermans.minerals.blocks.entity.SmelterBlockEntity;
+import net.endermans.minerals.util.FluidStack;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -16,10 +17,13 @@ import net.minecraft.screen.slot.Slot;
 import org.jetbrains.annotations.Nullable;
 
 public class SmelterScreenHandler extends ScreenHandler {
+
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
 
     public final SmelterBlockEntity blockEntity;
+
+    public  FluidStack fluidStack;
 
     public SmelterScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
         this(syncId, playerInventory,
@@ -35,6 +39,7 @@ public class SmelterScreenHandler extends ScreenHandler {
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = (SmelterBlockEntity) blockEntity;
+        this.fluidStack = new FluidStack(((SmelterBlockEntity) blockEntity).fluidStorage.variant, ((SmelterBlockEntity) blockEntity).fluidStorage.amount);
 
         this.addSlot(new Slot(inventory, 0, 12, 15));
         this.addSlot(new Slot(inventory, 1, 86, 15));
@@ -44,6 +49,10 @@ public class SmelterScreenHandler extends ScreenHandler {
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+    }
+
+    public void setFluid(FluidStack stack) {
+        fluidStack = stack;
     }
 
     public boolean isCrafting() {
@@ -101,4 +110,6 @@ public class SmelterScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
+
+
 }

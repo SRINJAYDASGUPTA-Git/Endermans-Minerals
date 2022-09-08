@@ -3,7 +3,12 @@ package net.endermans.minerals.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.screen.renderer.EnergyInfoArea;
+import net.endermans.minerals.screen.renderer.FluidStackRenderer;
+import net.endermans.minerals.util.FluidStack;
+import net.endermans.minerals.util.MouseUtil;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
@@ -16,6 +21,7 @@ public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
     public static final Identifier TEXTURE =
             new Identifier(EndermansMinerals.MOD_ID, "textures/gui/smelter_gui.png");
     private EnergyInfoArea energyInfoArea;
+    private FluidStackRenderer fluidStackRenderer;
 
     public SmelterScreen(SmelterScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -25,11 +31,35 @@ public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
         super.init();
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
         assignEnerygyInfoArea();
+        assignFluidStackRenderer();
+    }
+
+    private void assignFluidStackRenderer() {
+        fluidStackRenderer = new FluidStackRenderer(FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*20,
+                true, 15, 61);
     }
 
     private void assignEnerygyInfoArea() {
         energyInfoArea = new EnergyInfoArea(((width - backgroundWidth)/2 ) + 156,
                 ((height - backgroundHeight)/2) + 13, handler.blockEntity.energyStorage);
+    }
+
+    @Override
+    protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
+        int x = (width - backgroundWidth)/2;
+        int y = (height - backgroundHeight)/2;
+
+        renderEnergyAreaTooltips(matrices, mouseX, mouseY, x, y);
+        renderFluidToolTip(matrices, mouseX, mouseY, handler.fluidStack, 55, 15, fluidStackRenderer);
+    }
+
+    private void renderFluidToolTip(MatrixStack matrices, int mouseX, int mouseY,
+                                    FluidStack fluidStack, int offsetX, int offsetY, FluidStackRenderer fluidStackRenderer) {
+        if(isMouseAboveArea(mouseX, mouseY, x,y,offsetX,offsetY,fluidStackRenderer)){
+            renderTooltip(matrices, fluidStackRenderer.getTooltip(fluidStack, TooltipContext.Default.NORMAL),
+                    Optional.empty(), mouseX - x, mouseY - y);
+        }
+
     }
 
     @Override
@@ -42,7 +72,9 @@ public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
         renderProgressArrow(matrices, x, y);
-        energyInfoArea.draw(matrices)   ;
+        energyInfoArea.draw(matrices);
+        fluidStackRenderer.drawFluid(matrices, handler.fluidStack, x + 55, y+15, 16, 61,
+                FluidStack.convertDropletsToMb(FluidConstants.BUCKET)*20);
 
     }
 
@@ -51,6 +83,13 @@ public class SmelterScreen extends HandledScreen<SmelterScreenHandler> {
             renderTooltip(matrices, energyInfoArea.getTooltips(),
                     Optional.empty(), pMouseX - x, pMouseY - y);
         }
+    }
+
+    private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY, int width, int height) {
+        return MouseUtil.isMouseOver(pMouseX, pMouseY, x+offsetX, y+offsetY,width, height );
+    }
+    private boolean isMouseAboveArea(int pMouseX, int pMouseY, int x, int y, int offsetX, int offsetY, FluidStackRenderer renderer) {
+        return MouseUtil.isMouseOver(pMouseX, pMouseY, x+offsetX, y+offsetY,renderer.getWidth(), renderer.getHeight() );
     }
 
     private void renderProgressArrow(MatrixStack matrices, int x, int y) {

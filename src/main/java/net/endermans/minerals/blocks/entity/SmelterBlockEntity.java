@@ -1,14 +1,19 @@
 package net.endermans.minerals.blocks.entity;
 
 import net.endermans.minerals.blocks.custom.SmelterBlock;
+import net.endermans.minerals.fluid.ModFluids;
 import net.endermans.minerals.items.ModItems;
 import net.endermans.minerals.network.ModMessages;
 import net.endermans.minerals.recipe.SmelterRecipe;
 import net.endermans.minerals.screen.SmelterScreenHandler;
+import net.endermans.minerals.util.FluidStack;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -18,6 +23,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -54,6 +60,35 @@ public class SmelterBlockEntity extends BlockEntity implements ImplementedInvent
             }
         }
     };
+
+    public final SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<FluidVariant>() {
+        @Override
+        protected FluidVariant getBlankVariant() {
+            return FluidVariant.blank();
+        }
+
+        @Override
+        protected long getCapacity(FluidVariant variant) {
+            return FluidStack.convertDropletsToMb(FluidConstants.BUCKET) * 20;//20k Mb
+        }
+
+        @Override
+        protected void onFinalCommit() {
+            markDirty();
+            if(!world.isClient()){
+                PacketByteBuf data = PacketByteBufs.create();
+                variant.toPacket(data);
+                data.writeLong(amount);
+                data.writeBlockPos(getPos());
+
+                for(ServerPlayerEntity player: PlayerLookup.tracking(((ServerWorld) world), getPos())) {
+                    ServerPlayNetworking.send(player, ModMessages.FLUID_SYNC, data);
+                }
+            }
+
+        }
+    };
+
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
@@ -107,6 +142,8 @@ public class SmelterBlockEntity extends BlockEntity implements ImplementedInvent
         Inventories.writeNbt(nbt, inventory);
         nbt.putInt("smelter.progress", progress);
         nbt.putLong("smelter.energy", energyStorage.amount);
+        nbt.put("smelter.fluidVariant", fluidStorage.variant.toNbt());
+        nbt.putLong("smelter.fluidLevel", fluidStorage.amount);
     }
 
     @Override
@@ -115,6 +152,8 @@ public class SmelterBlockEntity extends BlockEntity implements ImplementedInvent
         super.readNbt(nbt);
         progress = nbt.getInt("smelter.progress");
         energyStorage.amount = nbt.getLong("smelter.energy");
+        fluidStorage.variant = FluidVariant.fromNbt((NbtCompound) nbt.get("smelter.fluidVariant"));
+        fluidStorage.amount = nbt.getLong("smelter.fluidLevel");
     }
 
     private void resetProgress() {
@@ -190,17 +229,48 @@ public class SmelterBlockEntity extends BlockEntity implements ImplementedInvent
             }
         }
 
-        if(hasRecipe(entity) && hasEnoughEnergy(entity)) {
+        if(hasRecipe(entity) && hasEnoughEnergy(entity) && hasEnoughFluid(entity)) {
             entity.progress++;
             extractEnergy(entity);
             markDirty(world, blockPos, state);
             if(entity.progress >= entity.maxProgress) {
                 craftItem(entity);
+                extractFluid(entity);
             }
         } else {
             entity.resetProgress();
             markDirty(world, blockPos, state);
         }
+
+        if(hasFluidSourceInSlot(entity)){
+            transferFluidIntoFluidStorage(entity);
+        }
+    }
+
+    private static void extractFluid(SmelterBlockEntity entity) {
+        try(Transaction transaction = Transaction.openOuter()){
+            entity.fluidStorage.extract(FluidVariant.of(ModFluids.STILL_ELEMENTX),
+                    500, transaction);
+            transaction.commit();
+        }
+
+    }
+
+    private static void transferFluidIntoFluidStorage(SmelterBlockEntity entity) {
+        try(Transaction transaction = Transaction.openOuter()){
+            entity.fluidStorage.insert(FluidVariant.of(ModFluids.STILL_ELEMENTX),
+                    FluidStack.convertDropletsToMb(FluidConstants.BUCKET), transaction);
+            transaction.commit();
+            entity.setStack(0, new ItemStack(Items.BUCKET));
+        }
+    }
+
+    private static boolean hasFluidSourceInSlot(SmelterBlockEntity entity) {
+        return entity.getStack(0).getItem() == ModFluids.ELEMENTX_BUCKET;
+    }
+
+    private static boolean hasEnoughFluid(SmelterBlockEntity entity) {
+        return entity.fluidStorage.amount >= 500;//in milliBucket, 1Bucket = 1000mB
     }
 
     private static void extractEnergy(SmelterBlockEntity entity) {
@@ -260,5 +330,9 @@ public class SmelterBlockEntity extends BlockEntity implements ImplementedInvent
 
     public void setEnergyLevel(long energy) {
         this.energyStorage.amount = energy;
+    }
+    public void setFluidLevel(FluidVariant fluidVariant, long fluidLevel){
+        this.fluidStorage.variant = fluidVariant;
+        this.fluidStorage.amount = fluidLevel;
     }
 }

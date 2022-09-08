@@ -4,6 +4,7 @@ package net.endermans.minerals.blocks.entity;
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -26,6 +27,7 @@ public class ModBlockEntities {
                         ModBlocks.SMELTER).build(null));
 
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, SMELTER);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, SMELTER);
 
 
     }
