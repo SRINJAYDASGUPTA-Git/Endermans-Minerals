@@ -2,7 +2,6 @@ package net.endermans.minerals;
 
 import net.endermans.minerals.blocks.ModBlocks;
 import net.endermans.minerals.fluid.ModFluids;
-import net.endermans.minerals.network.ModMessages;
 import net.endermans.minerals.screen.ModScreenHandlers;
 import net.endermans.minerals.screen.MortarPestleScreen;
 import net.endermans.minerals.screen.SmelterScreen;
@@ -26,7 +25,6 @@ public class EndermansMineralsClient implements ClientModInitializer {
                         new Identifier("minecraft:block/water_flow"),
                         0xA020024f
                 ));
-        ModMessages.registerS2CPackets();
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(),
                 ModFluids.STILL_ELEMENTX, ModFluids.FLOWING_ELEMENTX);

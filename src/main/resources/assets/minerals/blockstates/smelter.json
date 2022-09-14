@@ -2,18 +2,18 @@
   "variants": {
     "facing=east": {
       "model": "minerals:block/smelter",
-      "y": 270
+      "y": 90
     },
     "facing=north": {
-      "model": "minerals:block/smelter",
-      "y" : 180
+      "model": "minerals:block/smelter"
     },
     "facing=south": {
-      "model": "minerals:block/smelter"
+      "model": "minerals:block/smelter",
+      "y": 180
     },
     "facing=west": {
       "model": "minerals:block/smelter",
-      "y": 90
+      "y": 270
     }
   }
 }

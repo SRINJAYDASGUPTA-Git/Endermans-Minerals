@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 public class MortarPestleBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
-    public static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 10, 15, 10);
+    public static final VoxelShape SHAPE = Block.createCuboidShape(3, 0, 3, 16, 14, 16);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

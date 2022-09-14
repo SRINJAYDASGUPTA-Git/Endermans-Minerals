@@ -4,12 +4,9 @@ package net.endermans.minerals.blocks.entity;
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import team.reborn.energy.api.EnergyStorage;
-
 public class ModBlockEntities {
 
     public static BlockEntityType<MortarPestleBlockEntity> MORTAL_PESTLE;
@@ -25,10 +22,6 @@ public class ModBlockEntities {
                 new Identifier(EndermansMinerals.MOD_ID, "smelter"),
                 FabricBlockEntityTypeBuilder.create(SmelterBlockEntity::new,
                         ModBlocks.SMELTER).build(null));
-
-        EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, SMELTER);
-        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, SMELTER);
-
 
     }
 }

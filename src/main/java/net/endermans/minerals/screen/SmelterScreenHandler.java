@@ -1,70 +1,35 @@
 package net.endermans.minerals.screen;
 
-import net.endermans.minerals.blocks.entity.SmelterBlockEntity;
-import net.endermans.minerals.util.FluidStack;
-import net.minecraft.block.entity.BlockEntity;
+import net.endermans.minerals.screen.slot.ModFuelSlot;
+import net.endermans.minerals.screen.slot.ModResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
-import org.jetbrains.annotations.Nullable;
 
 public class SmelterScreenHandler extends ScreenHandler {
-
     private final Inventory inventory;
-    private final PropertyDelegate propertyDelegate;
 
-    public final SmelterBlockEntity blockEntity;
-
-    public  FluidStack fluidStack;
-
-    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        this(syncId, playerInventory,
-                playerInventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(2));
+    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory){
+        this(syncId, playerInventory, new SimpleInventory(4));
     }
-
-
-    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
+    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(ModScreenHandlers.SMELTER_SCREEN_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity), 3);
-        this.inventory = ((Inventory) blockEntity);
+        checkSize(inventory, 4);
+        this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
-        this.propertyDelegate = propertyDelegate;
-        this.blockEntity = (SmelterBlockEntity) blockEntity;
-        this.fluidStack = new FluidStack(((SmelterBlockEntity) blockEntity).fluidStorage.variant, ((SmelterBlockEntity) blockEntity).fluidStorage.amount);
 
-        this.addSlot(new Slot(inventory, 0, 12, 15));
-        this.addSlot(new Slot(inventory, 1, 86, 15));
-        this.addSlot(new Slot(inventory, 2, 86, 60));
-
-        addProperties(propertyDelegate);
+        this.addSlot(new ModFuelSlot(inventory, 0, 18, 50));
+        this.addSlot(new Slot(inventory, 1, 66, 16));
+        this.addSlot(new Slot(inventory, 2, 66, 50));
+        this.addSlot(new ModResultSlot(inventory, 3, 114, 33));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
-    }
-
-    public void setFluid(FluidStack stack) {
-        fluidStack = stack;
-    }
-
-    public boolean isCrafting() {
-        return propertyDelegate.get(0) > 0;
-    }
-
-    public int getScaledProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the width in pixels of your arrow
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     @Override
@@ -110,6 +75,4 @@ public class SmelterScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
-
-
 }
