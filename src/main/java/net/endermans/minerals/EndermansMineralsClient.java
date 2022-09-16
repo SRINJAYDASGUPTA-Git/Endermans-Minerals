@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
+import software.bernie.geckolib3.GeckoLib;
 
 public class EndermansMineralsClient implements ClientModInitializer {
     @Override
@@ -31,6 +32,7 @@ public class EndermansMineralsClient implements ClientModInitializer {
 
         HandledScreens.register(ModScreenHandlers.MORTAR_PESTLE_SCREEN_HANDLER, MortarPestleScreen::new);
         HandledScreens.register(ModScreenHandlers.SMELTER_SCREEN_HANDLER, SmelterScreen::new);
+        GeckoLib.initialize();
         
     }
 }
