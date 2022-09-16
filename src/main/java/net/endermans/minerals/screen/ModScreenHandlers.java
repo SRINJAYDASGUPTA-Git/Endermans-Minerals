@@ -1,10 +1,6 @@
 package net.endermans.minerals.screen;
 
-import net.endermans.minerals.EndermansMinerals;
-import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 
 public class ModScreenHandlers {

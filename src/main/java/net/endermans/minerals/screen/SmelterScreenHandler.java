@@ -7,20 +7,24 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
 public class SmelterScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
 
-    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory){
-        this(syncId, playerInventory, new SimpleInventory(4));
+    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory) {
+        this(syncId, playerInventory, new SimpleInventory(4), new ArrayPropertyDelegate(4));
     }
-    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+
+    public SmelterScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.SMELTER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 4);
         this.inventory = inventory;
+        this.propertyDelegate = propertyDelegate;
         inventory.onOpen(playerInventory.player);
 
         this.addSlot(new ModFuelSlot(inventory, 0, 18, 50));
@@ -30,6 +34,31 @@ public class SmelterScreenHandler extends ScreenHandler {
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+        addProperties(propertyDelegate);
+    }
+
+    public boolean isCrafting() {
+        return propertyDelegate.get(0) > 0;
+    }
+
+    public boolean hasFuel() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+    public int getScaledProgress() {
+        int progress = this.propertyDelegate.get(0);
+        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
+        int progressArrowSize = 26; // This is the width in pixels of your arrow
+
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    public int getScaledFuelProgress() {
+        int fuelProgress = this.propertyDelegate.get(2);
+        int maxFuelProgress = this.propertyDelegate.get(3);
+        int fuelProgressSize = 14;
+
+        return maxFuelProgress != 0 ? (int) (((float) fuelProgress / (float) maxFuelProgress) * fuelProgressSize) : 0;
     }
 
     @Override

@@ -1,0 +1,14 @@
+{
+  "type": "minerals:smelter_fusing",
+  "ingredients": [
+    {
+      "item": "minerals:iron_dust"
+    },
+    {
+      "item": "minerals:ferrite_dust"
+    }
+  ],
+  "output": {
+    "item": "minerals:ferrite"
+  }
+}

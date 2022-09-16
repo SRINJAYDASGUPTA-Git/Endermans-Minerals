@@ -12,7 +12,8 @@ public class ModRecipes {
                         MortarPestleRecipe.Serializer.ID),
                 MortarPestleRecipe.Serializer.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE,
-                new Identifier(EndermansMinerals.MOD_ID, MortarPestleRecipe.Type.ID),
+                new Identifier(EndermansMinerals.MOD_ID,
+                        MortarPestleRecipe.Type.ID),
                 MortarPestleRecipe.Type.INSTANCE);
 
         //SMELTER
