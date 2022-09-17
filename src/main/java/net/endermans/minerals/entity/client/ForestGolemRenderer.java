@@ -31,5 +31,6 @@ public class ForestGolemRenderer extends GeoEntityRenderer<ForestGolemEntity> {
         stack.scale(0.8f, 0.8f, 0.8f);
 
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
+
     }
 }
