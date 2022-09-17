@@ -2,13 +2,11 @@ package net.endermans.minerals.items;
 
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.ModBlocks;
+import net.endermans.minerals.entity.ModEntities;
 import net.endermans.minerals.items.custom.ModMusicDiscItem;
 import net.endermans.minerals.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.MusicDiscItem;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -150,6 +148,14 @@ public class ModItems {
                     "bismuth_crystal",
                     new Item(new FabricItemSettings().
                             group(ModItemGroup.ELEMENTS)));
+
+    public static final Item FOREST_GOLEM_SPAWNEGG =
+            registerItem(
+                    "forest_golem_spawnegg",
+                    new SpawnEggItem(ModEntities.FOREST_GOLEM,
+                            0x8e8c8e,
+                            0x6d3f01,
+                            new FabricItemSettings().group(ModItemGroup.ELEMENTS)));
 
 
 

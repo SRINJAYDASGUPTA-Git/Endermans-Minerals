@@ -1,6 +1,8 @@
 package net.endermans.minerals;
 
 import net.endermans.minerals.blocks.ModBlocks;
+import net.endermans.minerals.entity.ModEntities;
+import net.endermans.minerals.entity.client.ForestGolemRenderer;
 import net.endermans.minerals.fluid.ModFluids;
 import net.endermans.minerals.screen.ModScreenHandlers;
 import net.endermans.minerals.screen.MortarPestleScreen;
@@ -9,6 +11,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
@@ -33,6 +36,6 @@ public class EndermansMineralsClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.MORTAR_PESTLE_SCREEN_HANDLER, MortarPestleScreen::new);
         HandledScreens.register(ModScreenHandlers.SMELTER_SCREEN_HANDLER, SmelterScreen::new);
         GeckoLib.initialize();
-        
+        EntityRendererRegistry.register(ModEntities.FOREST_GOLEM, ForestGolemRenderer::new);
     }
 }
