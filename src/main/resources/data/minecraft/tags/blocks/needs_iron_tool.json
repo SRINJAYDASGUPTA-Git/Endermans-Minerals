@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minerals:ferrite_block",
-    "minerals:pure_ferrite_block",
-    "minerals:magnetised_ferrite_block",
     "minerals:ferrite_ore",
     "minerals:deepslate_ferrite_ore",
     "minerals:lithium_ore",

@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
@@ -180,7 +181,9 @@ public class SmelterBlockEntity extends BlockEntity implements NamedScreenHandle
         if (match.isPresent()) {
             entity.removeStack(1, 1);
             entity.removeStack(2, 1);
-
+            if(entity.getStack(0).isOf(Items.BUCKET)){
+                entity.setStack(0, new ItemStack(Items.BUCKET));
+            }
             entity.setStack(3, new ItemStack(match.get().getOutput().getItem(),
                     entity.getStack(3).getCount() + 1));
 

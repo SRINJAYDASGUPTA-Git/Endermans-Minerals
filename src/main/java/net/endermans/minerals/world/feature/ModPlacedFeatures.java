@@ -4,6 +4,7 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class ModPlacedFeatures {
                                     )
                     ));
 
-public static RegistryEntry<PlacedFeature> LITHIUM_ORE_PLACED =
+    public static RegistryEntry<PlacedFeature> LITHIUM_ORE_PLACED =
             PlacedFeatures.register("lithium_ore_placed",
             ModConfiguredFeature.LIHIUM_ORE,
                     modifiersWithCount(
@@ -40,6 +41,11 @@ public static RegistryEntry<PlacedFeature> LITHIUM_ORE_PLACED =
                                             YOffset.fixed(80)
                                     )
                     ));
+
+    public static RegistryEntry<PlacedFeature> SANDALWOOD_PLACED = PlacedFeatures.register("sandalwood_placed",
+            ModConfiguredFeature.SANDALWOOD_SPAWN,
+            VegetationPlacedFeatures.modifiers(PlacedFeatures.createCountExtraModifier(1, 0.1f, 2)));
+
 
 
 

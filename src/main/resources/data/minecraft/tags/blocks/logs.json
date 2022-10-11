@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minerals:sandalwood_log",
+    "minerals:sandalwood_wood",
+    "minerals:stripped_sandalwood_log",
+    "minerals:stripped_sandalwood_wood"
+
+  ]
+}

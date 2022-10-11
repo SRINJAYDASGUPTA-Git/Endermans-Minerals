@@ -6,12 +6,10 @@ import net.endermans.minerals.blocks.custom.EggPlantCropBlock;
 import net.endermans.minerals.blocks.custom.MortarPestleBlock;
 import net.endermans.minerals.blocks.custom.SmelterBlock;
 import net.endermans.minerals.items.ModItemGroup;
+import net.endermans.minerals.world.feature.tree.SandalwoodSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.Material;
-import net.minecraft.block.OreBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -371,6 +369,69 @@ public class ModBlocks {
                     ModItemGroup.ELEMENTS
             );
 
+    public static final Block SANDALWOOD_LOG =
+            registerBlock(
+                    "sandalwood_log",
+                    new PillarBlock(FabricBlockSettings.
+                            copy(Blocks.DARK_OAK_LOG)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+public static final Block SANDALWOOD_WOOD =
+            registerBlock(
+                    "sandalwood_wood",
+                    new PillarBlock(FabricBlockSettings.
+                            copy(Blocks.DARK_OAK_WOOD)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+public static final Block STRIPPED_SANDALWOOD_LOG =
+            registerBlock(
+                    "stripped_sandalwood_log",
+                    new PillarBlock(FabricBlockSettings.
+                            copy(Blocks.STRIPPED_DARK_OAK_LOG)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+public static final Block STRIPPED_SANDALWOOD_WOOD =
+            registerBlock(
+                    "stripped_sandalwood_wood",
+                    new PillarBlock(FabricBlockSettings.
+                            copy(Blocks.STRIPPED_DARK_OAK_WOOD)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+public static final Block SANDALWOOD_PLANKS =
+            registerBlock(
+                    "sandalwood_planks",
+                    new Block(FabricBlockSettings.
+                            copy(Blocks.DARK_OAK_PLANKS)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+public static final Block SANDALWOOD_LEAVES =
+            registerBlock(
+                    "sandalwood_leaves",
+                    new LeavesBlock(FabricBlockSettings.
+                            copy(Blocks.DARK_OAK_LEAVES)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
+
+public static final Block SANDALWOOD_SAPLING =
+            registerBlock(
+                    "sandalwood_sapling",
+                    new SaplingBlock(new SandalwoodSaplingGenerator(),
+                            FabricBlockSettings.
+                            copy(Blocks.OAK_SAPLING)
+                    ),
+                    ModItemGroup.ELEMENTS
+            );
 
 
 

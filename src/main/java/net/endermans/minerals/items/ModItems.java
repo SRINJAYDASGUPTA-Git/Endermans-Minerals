@@ -3,6 +3,7 @@ package net.endermans.minerals.items;
 import net.endermans.minerals.EndermansMinerals;
 import net.endermans.minerals.blocks.ModBlocks;
 import net.endermans.minerals.entity.ModEntities;
+import net.endermans.minerals.items.custom.ModHoeItem;
 import net.endermans.minerals.items.custom.ModMusicDiscItem;
 import net.endermans.minerals.sound.ModSounds;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -156,6 +157,47 @@ public class ModItems {
                             0x8e8c8e,
                             0x6d3f01,
                             new FabricItemSettings().group(ModItemGroup.ELEMENTS)));
+
+
+    public static final Item BISMUTH_SWORD =
+            registerItem("bismuth_sword",
+                    new SwordItem(ModToolMaterials.BISMUTH,
+                            2,
+                            2.5f,
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.ELEMENTS)));
+
+    public static final Item BISMUTH_AXE =
+            registerItem("bismuth_axe",
+                    new AxeItem(ModToolMaterials.BISMUTH,
+                            3,
+                            1.5f,
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.ELEMENTS)));
+
+    public static final Item BISMUTH_PICKAXE =
+            registerItem("bismuth_pickaxe",
+                    new PickaxeItem(ModToolMaterials.BISMUTH,
+                            4,
+                            2f,
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.ELEMENTS)));
+
+    public static final Item BISMUTH_SHOVEL =
+            registerItem("bismuth_shovel",
+                    new ShovelItem(ModToolMaterials.BISMUTH,
+                            1,
+                            1f,
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.ELEMENTS)));
+
+    public static final Item BISMUTH_HOE =
+            registerItem("bismuth_hoe",
+                    new ModHoeItem(ModToolMaterials.BISMUTH,
+                            0,
+                            0f,
+                            new FabricItemSettings()
+                                    .group(ModItemGroup.ELEMENTS)));
 
 
 
