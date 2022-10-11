@@ -1,11 +1,10 @@
 package net.endermans.minerals.entity.custom;
 
+import net.endermans.minerals.entity.ModEntities;
+import net.endermans.minerals.items.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -13,6 +12,7 @@ import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -37,9 +37,10 @@ public class DodoEntity extends AnimalEntity implements IAnimatable {
 
     protected void initGoals(){
         this.goalSelector.add(0, new SwimGoal(this));
-        this.goalSelector.add(2, new WanderAroundFarGoal(this, 1.0));
-        this.goalSelector.add(3, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-        this.goalSelector.add(4, new LookAroundGoal(this));
+        this.targetSelector.add(1, new AnimalMateGoal(this, 1.0d));
+        this.goalSelector.add(1, new WanderAroundFarGoal(this, 1.0));
+        this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+        this.goalSelector.add(3, new LookAroundGoal(this));
 
     }
 
@@ -54,7 +55,14 @@ public class DodoEntity extends AnimalEntity implements IAnimatable {
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        return null;
+
+        return ModEntities.DODO.create(world);
+
+    }
+
+    @Override
+    public boolean isBreedingItem(ItemStack stack) {
+        return stack.getItem() == ModItems.EGGPLANT;
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event){

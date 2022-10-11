@@ -19,7 +19,7 @@ public class ModEntities {
     public static final EntityType<DodoEntity> DODO = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(EndermansMinerals.MOD_ID, "dodo"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, DodoEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.2f, 0.3f)).build()
+                    .dimensions(EntityDimensions.fixed(1f, 1f)).build()
     );
 
 
